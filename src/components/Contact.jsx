@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+
 
 const Contact = () => {
   const handleFocus = () => {
@@ -15,8 +17,19 @@ const Contact = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
-    // Handle form submission
+  const onSubmit = async (data, e) => {
+    try {
+      await axios.post('https://getform.io/f/d1d8da26-72d9-4d0b-87b7-4e6fd2123aa8', data);
+      console.log('Form submitted successfully');
+      // Additional logic or success message
+      // Redirect the user to the thank you page
+    window.location.href = 'https://getform.io/thank-you?id=d1d8da26-72d9-4d0b-87b7-4e6fd2123aa8';
+    // Reset the form fields
+    e.target.reset();
+    } catch (error) {
+      console.error('Form submission error:', error);
+      // Additional error handling or error message
+    }
     console.log(data);
   };
 
