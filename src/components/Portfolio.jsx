@@ -1,65 +1,85 @@
-import React from 'react';
-import CImg from '../assets/Complete-C-Programming.png';
-import CppImg from '../assets/C-Language2.png';
-import JavaImg from '../assets/javaP.jpeg';
-import PyImg from '../assets/PyImg.png';
-import ReactImg from '../assets/react.jpg';
-import KotlinImg from '../assets/kotlin.webp';
-import portBg from '../assets/portBg.jpg';
-import { Parallax } from 'react-parallax';
+import React from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import { motion } from "framer-motion";
 
-const Portfolio = () => {
-  const portfolios = [
-    {
-      id: 1,
-      src: CImg,
-    },
-    {
-      id: 2,
-      src: CppImg,
-    },
-    {
-      id: 3,
-      src: JavaImg,
-    },
-    {
-      id: 4,
-      src: PyImg,
-    },
-    {
-      id: 5,
-      src: ReactImg,
-    },
-    {
-      id: 6,
-      src: KotlinImg,
-    },
-  ];
+import "react-vertical-timeline-component/style.min.css";
 
+import { styles } from "../styles";
+import { experiences } from "../constants";
+import { SectionWrapper } from "../hoc";
+import { textVariant } from "../utils/motion";
+
+const ExperienceCard = ({ experience }) => {
   return (
-    <Parallax bgImage={portBg} strength={500} className='bg-cover'>
-    <div name="portfolio" className="w-full mt-20 text-black bg-cover" style={{backgroundSize:"cover"}}>
-      <div className="flex flex-col justify-center w-full h-full max-w-screen-lg p-4 mx-auto">
-        <div className="pb-8">
-          <p className="inline text-4xl font-bold border-b-4 border-gray-500">Portfolio</p>
-          <p className="py-6">Check out some of my work right here</p>
+    <VerticalTimelineElement
+      contentStyle={{
+        background: "#1d1836",
+        color: "#fff",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  #8A0391" }}
+      date={experience.date}
+      iconStyle={{ background: experience.iconBg }}
+      icon={
+        <div className='flex justify-center items-center w-full h-full'>
+          <img
+            src={experience.icon}
+            alt={experience.company_name}
+            className='w-[60%] h-[60%] object-contain'
+          />
         </div>
-
-        <div className="grid gap-8 px-12 sm:grid-cols-2 md:grid-cols-3 sm:px-0">
-          {portfolios.map(({ id, src }) => (
-            <div key={id} className="rounded-lg shadow-md shadow-gray-600">
-              <img src={src} alt="" className="object-contain duration-200 rounded-md hover:scale-105" />
-              <div className="flex items-center justify-center space-x-4">
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">Demo</button>
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">Code</button>
-              </div>
-            </div>
-          ))}
-        </div>
+      }
+    >
+      <div>
+        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <p
+          className='text-secondary text-[16px] font-semibold'
+          style={{ margin: 0 }}
+        >
+          {experience.company_name}
+        </p>
       </div>
-    </div>
-    </Parallax>
+
+      <ul className='mt-5 list-disc ml-5 space-y-2'>
+        {experience.points.map((point, index) => (
+          <li
+            key={`experience-point-${index}`}
+            className='text-white-100 text-[14px] pl-1 tracking-wider'
+          >
+            {point}
+          </li>
+        ))}
+      </ul>
+    </VerticalTimelineElement>
   );
 };
 
-export default Portfolio;
+const Experience = () => {
+  return (
+    <>
+      <motion.div variants={textVariant()} name="experience">
+        <p className={`${styles.sectionSubText} text-center`} >
+          What I have done so far
+        </p>
+        <h2 className={`${styles.sectionHeadText} text-center`} >
+          Work Experience.
+        </h2>
+      </motion.div>
+
+      <div className='mt-20 flex flex-col'>
+        <VerticalTimeline>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+            />
+          ))}
+        </VerticalTimeline>
+      </div>
+    </>
+  );
+};
+
+export default SectionWrapper(Experience, "work");

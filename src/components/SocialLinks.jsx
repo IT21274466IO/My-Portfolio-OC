@@ -53,7 +53,7 @@ const SocialLinks = () => {
 
             {links.map(({id, child, href, style, download}) => (
                 // eslint-disable-next-line no-useless-concat
-                <li key={id} className={"flex items-center justify-between w-40 px-4 bg-gray-500 h-14 ml-[-100px] hover:rounded-md duration-300 hover:ml-[-10px]" + " " + style}>
+                <li key={id} className={"flex items-center justify-between w-40 px-4 bg-cyan-800 h-14 ml-[-100px] hover:rounded-md duration-300 hover:ml-[-10px]" + " " + style}>
                 <a href={href} className='flex items-center justify-around w-full text-white' download={download} target='_blank' rel='noreferrer'>
                    {child}
                 </a>
