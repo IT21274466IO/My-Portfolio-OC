@@ -324,3 +324,20 @@ body{
   background-size: cover;
   border-radius: 20%;
 }
+
+.DotLoader {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.DotLoaderContact {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: white;
+}

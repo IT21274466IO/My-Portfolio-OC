@@ -23,6 +23,7 @@
     "react-parallax": "^3.5.1",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.9",
+    "react-spinners": "^0.13.8",
     "react-tilt": "^1.0.2",
     "react-use": "^17.4.0",
     "react-vertical-timeline-component": "^3.6.0",

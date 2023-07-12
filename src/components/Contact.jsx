@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useForm } from 'react-hook-form';
+import { PulseLoader } from 'react-spinners';
 import axios from 'axios';
 
 
@@ -17,20 +18,27 @@ const Contact = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+  const [submitting, setSubmitting] = useState(false);
+
   const onSubmit = async (data, e) => {
     try {
+      setSubmitting(true);
       await axios.post('https://getform.io/f/d1d8da26-72d9-4d0b-87b7-4e6fd2123aa8', data);
       console.log('Form submitted successfully');
       // Additional logic or success message
+
       // Redirect the user to the thank you page
-    window.location.href = 'https://getform.io/thank-you?id=d1d8da26-72d9-4d0b-87b7-4e6fd2123aa8';
-    // Reset the form fields
-    e.target.reset();
-    } catch (error) {
-      console.error('Form submission error:', error);
-      // Additional error handling or error message
-    }
-    console.log(data);
+      window.location.href = 'https://getform.io/thank-you?id=d1d8da26-72d9-4d0b-87b7-4e6fd2123aa8';
+      // Reset the form fields
+      e.target.reset();
+      
+      } catch (error) {
+        console.error('Form submission error:', error);
+        // Additional error handling or error message
+      } finally {
+        setSubmitting(false);
+      }
+      console.log(data);
   };
 
   return (
@@ -82,7 +90,12 @@ const Contact = () => {
           <div className='absolute z-0 w-40 h-40 bg-cyan-900 rounded-full -right-28 -top-28'></div>
           <div className='absolute z-0 w-40 h-40 bg-cyan-900 rounded-full -left-28 -bottom-16'></div>
           <div className='relative z-10 bg-white rounded-xl shadow-lg p-8 text-gray-600 md:w-96'>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-4'>
+            {submitting ? ( //Render preloader while submitting is true
+                <div className='DotLoaderContact'>
+                  <PulseLoader loading={true} size={50} color={'#107899'} />
+                </div>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-4'>
               <div>
                 <label htmlFor='name' className='text-sm'>
                   Your name
@@ -132,6 +145,8 @@ const Contact = () => {
                 Send Message
               </button>
             </form>
+            )}
+            
           </div>
         </div>
       </div>
