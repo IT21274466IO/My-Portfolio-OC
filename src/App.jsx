@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { DotLoader } from 'react-spinners';
+// import React, { useState, useEffect } from 'react';
+// import { DotLoader } from 'react-spinners';
 import About from './components/About';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
@@ -11,39 +11,51 @@ import Works from './components/Works';
 import 'focus-visible/dist/focus-visible';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const handleLoad = () => {
-      setLoading(false);
-    };
+  // useEffect(() => {
+  //   const handleLoad = () => {
+  //     setLoading(false);
+  //   };
 
-    window.addEventListener('load', handleLoad);
+  //   window.addEventListener('load', handleLoad);
 
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('load', handleLoad);
+  //   };
+  // }, []);
 
   return (
+    // <div>
+    //   {loading ? (
+    //     <div className='DotLoader'>
+    //       <DotLoader loading={loading} size={150} color={'#036977'} />
+    //     </div>
+    //   ) : (
+    //     <>
+    //       <NavBar />
+    //       <Home />
+    //       <About />
+    //       <Portfolio />
+    //       <Experience />
+    //       <Works />
+    //       <Contact />
+    //       <SocialLinks />
+    //     </>
+    //   )}
+    // </div>
     <div>
-      {loading ? (
-        <div className='DotLoader'>
-          <DotLoader loading={loading} size={150} color={'#036977'} />
-        </div>
-      ) : (
-        <>
-          <NavBar />
-          <Home />
-          <About />
-          <Portfolio />
-          <Experience />
-          <Works />
-          <Contact />
-          <SocialLinks />
-        </>
-      )}
-    </div>
+    <>
+      <NavBar />
+      <Home />
+      <About />
+      <Portfolio />
+      <Experience />
+      <Works />
+      <Contact />
+      <SocialLinks />
+    </>
+</div>
   );
 }
 
