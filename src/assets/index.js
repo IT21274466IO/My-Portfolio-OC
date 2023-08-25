@@ -36,6 +36,7 @@ import quImg from './ques.png';
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
+import oopProject from "./oopProject.png";
 import tripguide from "./tripguide.png";
 import MADimg from './MADProject.png';
 import HMimg from './hmSS2.png';
@@ -79,4 +80,5 @@ export {
   quImg,
   MADimg,
   HMimg,
+  oopProject,
 };

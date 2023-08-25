@@ -11,7 +11,6 @@ import {
   git,
   figma,
   docker,
-  tripguide,
   threejs,
   web_dev,
   reactNative,
@@ -23,6 +22,7 @@ import {
   quImg,
   MADimg,
   HMimg,
+  oopProject,
 } from "../assets";
 
 export const navLinks = [
@@ -216,8 +216,8 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: oopProject,
+    source_code_link: "https://github.com/IT21274466IO/Online-Tour-Guide-OOP-Project",
   },
   {
     name: "Job Search",
@@ -238,7 +238,7 @@ const projects = [
       },
     ],
     image: MADimg,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/AnjanaDinuwan/JOBSSearch",
   },
   {
     name: "Mobile Shop Management System",
@@ -263,7 +263,7 @@ const projects = [
       },
     ],
     image: HMimg,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/GunawardaneKC/HappyMobile-001",
   },
 ];
 
