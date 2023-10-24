@@ -67,7 +67,7 @@ const Contact = () => {
             <div className='inline-flex space-x-2 items-center myPyhAddress'>
               <a className='inline-flex space-x-2 items-center' href="https://www.google.com/maps/@7.2572022,80.3545341,20.99z?entry=ttu">
               <FontAwesomeIcon icon={faLocationDot} className='text-teal-300 text-xl' />
-              <span>07, Kurunduhinna Road, Kegalle</span>
+              <span>51/4/B/1, Diyatha Uyana, Siddamulla, Piliyandala</span>
               </a>
             </div>
           </div>

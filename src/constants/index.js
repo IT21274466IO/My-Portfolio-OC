@@ -13,7 +13,7 @@ import {
   docker,
   threejs,
   web_dev,
-  reactNative,
+  uiux,
   backendDev,
   androidDev,
   schoolImg,
@@ -42,19 +42,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Full-Stack Developer",
     icon: web_dev,
   },
   {
-    title: "React Native Developer",
-    icon: reactNative,
+    title: "UI/UX Designer",
+    icon: uiux,
   },
   {
-    title: "Backend Developer",
+    title: "Desktop App Developer",
     icon: backendDev,
   },
   {
-    title: "Android App Developer",
+    title: "Mobile App Developer",
     icon: androidDev,
   },
 ];

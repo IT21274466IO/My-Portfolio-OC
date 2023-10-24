@@ -7,7 +7,7 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import web_dev from './web.webp';
-import reactNative from './react-native2.png';
+import uiux from './uiux.jpg';
 import backendDev from './backend-development-banner.svg';
 import androidDev from './image9.png';
 
@@ -71,7 +71,7 @@ export {
   jobit,
   tripguide,
   web_dev,
-  reactNative,
+  uiux,
   backendDev,
   androidDev,
   schoolImg,

@@ -3,7 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { styles } from "../styles";
-import meImg from '../assets/me.jpeg';
+import meImg from '../assets/IMG-0407.jpg';
 // import Imantha from '../assets/ImanthaatScienceday.jpeg';
 // import axios from 'axios';
 import { TypeAnimation } from 'react-type-animation';
@@ -52,9 +52,9 @@ const Home = () => {
               <TypeAnimation sequence={[
                   "I'm a Developer",
                   2000,
-                  "I'm a Designer",
+                  "I'm a Leaner",
                   2000,
-                  "I'm a Gamer",
+                  "I'm a Designer",
                   2000,
                 ]}
               speed={50} className='text-[#915EFE] font-bold text-[24px]' wrapper='span' repeat={Infinity}
